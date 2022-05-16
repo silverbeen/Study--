@@ -1,12 +1,13 @@
+const fs = require('fs');
+const input = fs.readFileSync("./dev/stdin").toString().trim().split('\n');
+const n = +input[0]
+const numArray = input[1].split(' ').map(Number)
+
 function pay(n, numArray) {
-  const D = [];
+  const D = new Array(n + 1).fill(0);
   const P = numArray;
 
   P.unshift(0);
-
-  for (let i = 0; i <= n; i++) {
-    D.push(0);
-  }
 
   for (let i = 1; i <= n; i++) {
     for (let j = 1; j <= i; j++) {
@@ -19,4 +20,4 @@ function pay(n, numArray) {
   console.log(D[n]);
 }
 
-pay(5, [10, 9, 8, 7, 6]);
+pay(n, numArray);
